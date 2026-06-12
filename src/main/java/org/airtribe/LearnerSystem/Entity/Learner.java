@@ -1,11 +1,14 @@
 package org.airtribe.LearnerSystem.Entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Learner {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long learnerID;
     private String name;
     private String username;
