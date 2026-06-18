@@ -13,6 +13,11 @@ public class Learner {
     private String name;
     private String username;
     private String password;
+
+    public Learner() {
+
+    }
+
     public Learner(Long learnerID, String name, String username, String password) {
         this.learnerID = learnerID;
         this.name = name;
@@ -20,6 +25,7 @@ public class Learner {
         this.password = password;
 
     }
+
 
     public Long getLearnerID() {
         return learnerID;

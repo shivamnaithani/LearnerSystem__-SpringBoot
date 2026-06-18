@@ -5,6 +5,8 @@ import org.airtribe.LearnerSystem.Repository.LearnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LearnerManagementService {
 
@@ -13,5 +15,9 @@ public class LearnerManagementService {
 
     public Learner createLearner(Learner learner) {
         return learnerRepository.save(learner);
+    }
+
+    public List<Learner> getAllLearners() {
+        return learnerRepository.findAll();
     }
 }
