@@ -20,4 +20,8 @@ public class LearnerManagementService {
     public List<Learner> getAllLearners() {
         return learnerRepository.findAll();
     }
+
+    public Learner findLearnerById(Long learnerId) {
+        return learnerRepository.findById(learnerId).get();
+    }
 }
