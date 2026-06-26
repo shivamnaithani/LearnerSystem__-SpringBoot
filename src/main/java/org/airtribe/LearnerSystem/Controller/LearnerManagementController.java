@@ -27,4 +27,9 @@ public class LearnerManagementController {
     public Learner fetchLearnerById(@PathVariable("learnerId") Long learnerId) {
         return learnerManagementService.findLearnerById(learnerId);
     }
+
+    @GetMapping("/learners/{learnerName}")
+    public Learner fetchLearnerByName(@PathVariable("learnerName") String learnerName) {
+        return learnerManagementService.findLearnerByName(learnerName);
+    }
 }

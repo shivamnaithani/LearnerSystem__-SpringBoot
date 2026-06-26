@@ -24,4 +24,8 @@ public class LearnerManagementService {
     public Learner findLearnerById(Long learnerId) {
         return learnerRepository.findById(learnerId).get();
     }
+
+    public Learner findLearnerByName(String learnerName) {
+        return learnerRepository.findLearnerByName(learnerName);
+    }
 }
