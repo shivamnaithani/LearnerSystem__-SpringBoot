@@ -26,6 +26,6 @@ public class LearnerManagementService {
     }
 
     public Learner findLearnerByName(String learnerName) {
-        return learnerRepository.findLearnerByName(learnerName);
+        return learnerRepository.findName(learnerName);
     }
 }
