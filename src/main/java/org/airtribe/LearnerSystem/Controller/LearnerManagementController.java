@@ -18,18 +18,17 @@ public class LearnerManagementController {
         return learnerManagementService.createLearner(learner);
     }
 
-    @GetMapping("/learners")
-    public List<Learner> getLearners() {
-        return learnerManagementService.getAllLearners();
-    }
-
     @GetMapping("/learners/{learnerId}")
     public Learner fetchLearnerById(@PathVariable("learnerId") Long learnerId) {
         return learnerManagementService.findLearnerById(learnerId);
     }
 
-    @GetMapping("/learners/{learnerName}")
-    public Learner fetchLearnerByName(@PathVariable("learnerName") String learnerName) {
-        return learnerManagementService.findLearnerByName(learnerName);
+    @GetMapping("/learners")
+    public List<Learner> fetchLearnerByName(@RequestParam(value = "learnerName", required = false) String learnerName) {
+        if (learnerName == null) {
+            return learnerManagementService.getAllLearners();
+        }
+        Learner learner = learnerManagementService.findLearnerByName(learnerName);
+        return List.of(learner);
     }
 }
