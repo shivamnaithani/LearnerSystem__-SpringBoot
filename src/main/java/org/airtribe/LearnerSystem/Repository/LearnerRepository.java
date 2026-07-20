@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface LearnerRepository extends JpaRepository<Learner ,Long>
 {
     @Query("SELECT l FROM Learner l WHERE l.name = :learnerName")
-    Learner findName( String learnerName);
-    //Learner findName(String learnerName);
+    //Learner findLearnerByName( String learnerName);
+    Learner findName(String learnerName);
 }

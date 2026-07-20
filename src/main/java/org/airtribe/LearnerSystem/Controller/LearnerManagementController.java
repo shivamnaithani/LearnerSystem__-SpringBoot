@@ -24,11 +24,18 @@ public class LearnerManagementController {
     }
 
     @GetMapping("/learners")
-    public List<Learner> fetchLearnerByName(@RequestParam(value = "learnerName", required = false) String learnerName) {
-        if (learnerName == null) {
+    public List<Learner> fetchLearnerByName(
+            @RequestParam(value = "learnerName", required = false) String learnerName,
+            @RequestParam(value = "learnerId", required = false) Long learnerId) {
+
+        if (learnerName == null && learnerId == null) {
             return learnerManagementService.getAllLearners();
         }
-        Learner learner = learnerManagementService.findLearnerByName(learnerName);
+        if(learnerId == null){
+            Learner learner = learnerManagementService.findLearnerByName(learnerName);
+            return List.of(learner);
+        }
+        Learner learner = learnerManagementService.findLearnerById(learnerId);
         return List.of(learner);
     }
 }
